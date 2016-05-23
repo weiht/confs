@@ -1,0 +1,16 @@
+<include>
+  <extension name="test echo" >
+    <condition field="destination_number" expression="^(echo|9200)$">
+      <action application="answer"/>
+      <action application="sleep" data="1000"/>
+      <action application="echo" data=""/>
+    </condition>
+  </extension>
+  <extension name="test delay echo" >
+    <condition field="destination_number" expression="^(delay_echo|9200)$">
+      <action application="answer"/>
+      <action application="sleep" data="1000"/>
+      <action application="delay_echo" data="1000"/>
+    </condition>
+  </extension>
+</include>
