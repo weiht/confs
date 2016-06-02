@@ -10,7 +10,6 @@
 
 ### init脚本
 
-<code>
 <pre>
 #!/bin/bash
 ### BEGIN INIT INFO
@@ -196,12 +195,11 @@ esac
  
 exit 0
 </pre>
-</code>
 
 这个脚本要修改里面的DAEMON和PIDFILE两个变量。如果是包安装或者编译安装configure时没指定--prefix，那么保持不变即可。否则要修改为（以--prefix=/opt/fs1.6为例）：
 
-DAEMON=/opt/fs1.6/bin/$NAME
-PIDFILE=/opt/fs1.6/var/run/freeswitch/$NAME.pid
+	DAEMON=/opt/fs1.6/bin/$NAME
+	PIDFILE=/opt/fs1.6/var/run/freeswitch/$NAME.pid
 
 给这个脚本以执行权限，并配置为自动启动：
 
