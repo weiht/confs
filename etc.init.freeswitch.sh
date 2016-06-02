@@ -1,17 +1,3 @@
-# Debian 8 服务脚本
-
-先执行下面的几个命令：
-
-	adduser --disabled-password  --quiet --system --home /usr/local/freeswitch --gecos "FreeSWITCH Voice Platform" --ingroup daemon freeswitch
-	chown -R freeswitch:daemon /usr/local/freeswitch/ 
-	chmod -R o-rwx /usr/local/freeswitch/
-
-然后编辑init脚本，注意修改里面的路径。
-
-### init脚本
-
-<code>
-<pre>
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides:          freeswitch
@@ -195,16 +181,4 @@ case "$1" in
 esac
  
 exit 0
-</pre>
-</code>
-
-这个脚本要修改里面的DAEMON和PIDFILE两个变量。如果是包安装或者编译安装configure时没指定--prefix，那么保持不变即可。否则要修改为（以--prefix=/opt/fs1.6为例）：
-
-DAEMON=/opt/fs1.6/bin/$NAME
-PIDFILE=/opt/fs1.6/var/run/freeswitch/$NAME.pid
-
-给这个脚本以执行权限，并配置为自动启动：
-
-	chmod +x /etc/init.d/freeswitch
-	update-rc.d freeswitch defaults
 
